@@ -1,6 +1,6 @@
 !pip install icrawler
 
-#アイドル2人の顔を読み込む
+#乃木坂４６のアイドル2人の顔を読み込む
 
 from icrawler.builtin import BingImageCrawler
 #齋藤飛鳥の画像を取得
@@ -180,7 +180,7 @@ keras_param = "./cnn.h5"
 def load_image(path):
     img = Image.open(path)
     img = img.convert('RGB')
-    # 学習時に、(64, 64, 3)で学習したので、画像の縦・横は今回 変数imsizeの(64, 64)にリサイズします。
+    # 学習時に、(64, 64, 3)で学習したので画像の縦・横は変数imsizeの(64, 64)に変更
     img = img.resize(imsize)
     # 画像データをnumpy配列の形式に変更
     img = np.asarray(img)
