@@ -158,6 +158,7 @@ main()
 
 
 #判定したい画像をアップロード
+#yuki1.jpgをアップした
 
 from google.colab import files
 uploaded = files.upload()
@@ -173,7 +174,7 @@ from keras.models import load_model
 
 imsize = (64, 64)
 
-testpic     = "./yuki2.jpg"
+testpic     = "./yuki1.jpg"
 keras_param = "./cnn.h5"
 
 def load_image(path):
@@ -189,7 +190,10 @@ def load_image(path):
 model = load_model(keras_param)
 img = load_image(testpic)
 prd = model.predict(np.array([img]))
-print(prd) # 精度の表示
+print(prd)
+
+# 精度の表示
+
 prelabel = np.argmax(prd, axis=1)
 if prelabel == 0:
     print(">>>　齋藤飛鳥")
