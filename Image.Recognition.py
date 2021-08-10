@@ -1,6 +1,7 @@
+#手順-1 icrawlerをインストール
 !pip install icrawler
 
-#乃木坂４６のアイドル2人の顔を読み込む
+#手順-2 乃木坂４６のアイドル2人の顔を読み込む
 
 from icrawler.builtin import BingImageCrawler
 #齋藤飛鳥の画像を取得
@@ -17,7 +18,7 @@ crawler.crawl(keyword="与田祐希", max_num=100)
 
 
               
-#画像を処理し分割する
+#手順-3 画像を処理し分割する
 
 from PIL import Image
 import os, glob
@@ -74,7 +75,7 @@ np.save("./齋藤飛鳥_与田祐希.npy", xy)
 
 
 
-#学習する
+#手順-4 学習する
 
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
@@ -89,7 +90,7 @@ num_classes = len(classes)
 image_size = 64
 
 
-#データを読み込む関数
+#dateの読み込み
 
 def load_data():
     X_train, X_test, y_train, y_test = np.load("./齋藤飛鳥_与田祐希.npy", allow_pickle=True)
@@ -103,6 +104,7 @@ def load_data():
     return X_train, y_train, X_test, y_test
 
 
+  
 #モデルを学習する関数
 
 def train(X, y, X_test, y_test):
@@ -156,7 +158,7 @@ main()
 
 
 
-#判定したい画像
+#手順-5 判定したい画像
 #yuki1.jpgをアップした
 
 from google.colab import files
@@ -164,7 +166,7 @@ uploaded = files.upload()
 
 
 
-#判定する
+#手順-6 判定する
 
 import keras
 import sys, os
