@@ -1,15 +1,16 @@
 #手順-1 icrawlerをインストール
 !pip install icrawler
 
-#手順-2 乃木坂４６のアイドル2人の顔を読み込む
+#乃木坂４６のアイドル2人の顔を読み込む
 
+#手順-2(1)
 from icrawler.builtin import BingImageCrawler
 #齋藤飛鳥の画像を取得
 #ここでは１００枚までにした
 crawler = BingImageCrawler(storage={"root_dir": "齋藤飛鳥"})
 crawler.crawl(keyword="齋藤飛鳥", max_num=100)
 
-
+#手順-2(2)
 from icrawler.builtin import BingImageCrawler
 #与田祐希の画像を100枚取得
 #ここでは１００枚までにした
