@@ -160,7 +160,7 @@ main()
 
 
 #手順-5 判定したい画像
-#yuki1.jpgをアップした
+#asuka1.jpgをアップした
 
 from google.colab import files
 uploaded = files.upload()
