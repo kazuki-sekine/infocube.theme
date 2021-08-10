@@ -50,14 +50,14 @@ for index, classlabel in enumerate(classes):
         else:
 
        
-            # 画像を5度ずつ回転
+            # 画像を回転
             for angle in range(-20, 20, 5):
 
                 img_r = image.rotate(angle)
                 data = np.asarray(img_r)
                 X_train.append(data)
                 y_train.append(index)
-                # FLIP_LEFT_RIGHT　は 左右反転
+                # FLIP_LEFT_RIGHTは左右の反転
                 img_trains = img_r.transpose(Image.FLIP_LEFT_RIGHT)
                 data = np.asarray(img_trains)
                 X_train.append(data)
@@ -88,9 +88,9 @@ classes = ["齋藤飛鳥", "与田祐希"]
 num_classes = len(classes)
 image_size = 64
 
-"""
-データを読み込む関数
-"""
+
+#データを読み込む関数
+
 def load_data():
     X_train, X_test, y_train, y_test = np.load("./齋藤飛鳥_与田祐希.npy", allow_pickle=True)
    
@@ -102,9 +102,9 @@ def load_data():
 
     return X_train, y_train, X_test, y_test
 
-"""
-モデルを学習する関数
-"""
+
+#モデルを学習する関数
+
 def train(X, y, X_test, y_test):
     model = Sequential()
 
@@ -142,10 +142,9 @@ def train(X, y, X_test, y_test):
 
     return model
 
-"""
-メイン関数
-データの読み込みとモデルの学習を行います。
-"""
+
+#メイン関数
+
 def main():
     # データの読み込み
     X_train, y_train, X_test, y_test = load_data()
@@ -157,7 +156,7 @@ main()
 
 
 
-#判定したい画像をアップロード
+#判定したい画像
 #yuki1.jpgをアップした
 
 from google.colab import files
