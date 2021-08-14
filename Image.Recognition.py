@@ -6,16 +6,16 @@
 #手順-2(1)
 from icrawler.builtin import BingImageCrawler
 #齋藤飛鳥の画像を取得
-#ここでは１００枚までにした
+#ここでは200枚までにした
 crawler = BingImageCrawler(storage={"root_dir": "齋藤飛鳥"})
-crawler.crawl(keyword="齋藤飛鳥", max_num=100)
+crawler.crawl(keyword="齋藤飛鳥", max_num=200)
 
 #手順-2(2)
 from icrawler.builtin import BingImageCrawler
 #与田祐希の画像を100枚取得
-#ここでは１００枚までにした
+#ここでは200枚までにした
 crawler = BingImageCrawler(storage={"root_dir": "与田祐希"})
-crawler.crawl(keyword="与田祐希", max_num=100)
+crawler.crawl(keyword="与田祐希", max_num=200)
 
 
               
@@ -30,7 +30,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 classes = ["齋藤飛鳥", "与田祐希"]
 num_classes = len(classes)
-image_size = 64
+image_size = 128
 num_testdata = 25
 
 X_train = []
@@ -88,7 +88,7 @@ import numpy as np
 
 classes = ["齋藤飛鳥", "与田祐希"]
 num_classes = len(classes)
-image_size = 64
+image_size = 128
 
 
 #dateの読み込み
@@ -174,15 +174,14 @@ import sys, os
 import numpy as np
 from keras.models import load_model
 
-imsize = (64, 64)
+imsize = (128, 128)
 
-testpic     = "./yuki1.jpg"
+testpic     = "./asuka1.jpg"
 keras_param = "./cnn.h5"
 
 def load_image(path):
     img = Image.open(path)
     img = img.convert('RGB')
-    # 学習時に、(64, 64, 3)で学習したので画像の縦・横は変数imsizeの(64, 64)に変更
     img = img.resize(imsize)
     # 画像データをnumpy配列の形式に変更
     img = np.asarray(img)
